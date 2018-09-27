@@ -7,7 +7,7 @@ class Iterable {
         return this.iterable;
     }
 
-    where(whereCondition) {
+    filter(whereCondition) {
         return new Iterable(function*(iterable) {
             for (let curr of iterable) {
                 if (whereCondition(curr)) {
@@ -17,7 +17,7 @@ class Iterable {
         }(this.iterable));
     }
     
-    select(selectProjection) {
+    map(selectProjection) {
         return new Iterable(function*(iterable) {
             for (let curr of iterable) {
                 yield selectProjection(curr);
@@ -45,6 +45,12 @@ class Iterable {
             }
         }(this.iterable));
     }
+
+    slice(skip, take) {
+        return new Iterable(this.iterable)
+            .skip(skip)
+            .take(take);
+    }
     
     firstOrDefault(whereCondition, defaultValue = null) {
         for (let curr of this.iterable) {
@@ -56,11 +62,7 @@ class Iterable {
     };
     
     toArray() {
-        const array = [];
-        for (let curr of this.iterable) {
-            array.push(curr);
-        }
-        return array;
+        return Array.from(this.iterable);
     };
 };
 
