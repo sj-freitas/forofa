@@ -6,17 +6,16 @@ const complexArray = new Array(3000).fill(1).map(t => Math.floor(Math.random() *
 
 const lazyJs = (array) => {
     return new Iterable(array)
-        .map(t => parseInt(t))
-        .filter(t => t >= 3)
-        .slice(0, 3)
+        .lazyMap(t => parseInt(t))
+        .lazyFilter(t => t >= 3)
+        // .slice(0, 3)
         .toArray();
 }
 
 const eagerJs = (array) => {
     return array
         .map(t => parseInt(t))
-        .filter(t => t >= 3)
-        .slice(0, 3);
+        .filter(t => t >= 3);
 };
 
 
