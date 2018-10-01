@@ -211,7 +211,13 @@ const createIterableType = (functions = DEFAULT_ACTIONS) => {
         }
 
         async firstOrDefaultAsync() {
-
+            for (let curr of iterable) {
+                const currValue = await curr;
+                if (filterCondition(currValue)) {
+                    return currValue;
+                }
+            }
+            return onFailure();
         }
 
         async firstAsync(){
