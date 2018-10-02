@@ -1,9 +1,9 @@
 {
-  "name": "for-of-a",
+  "name": "forofa.js",
   "version": "1.0.0",
   "description": "Fluent api for lazy iterators in JS",
   "scripts": {
-    "test": "jest --no-cache"
+    "test": "jest --coverage --no-cache"
   },
   "author": "Sérgio Freitas",
   "license": "ISC",
