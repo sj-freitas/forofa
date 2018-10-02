@@ -1,21 +1,27 @@
-const { Iterable } = require('./linqJs');
+const { FluentIterable } = require('./../lib');
 const { performance } = require('perf_hooks');
 
 const simpleArray = ['2', '1', '4', '3', '7', '2', '3', '99'];
-const complexArray = new Array(3000).fill(1).map(t => Math.floor(Math.random() * 10000) + 1);
+// const complexArray = new Array(3000).fill(1).map(t => Math.floor(Math.random() * 10000) + 1);
+const complexArray = FluentIterable
+    .repeat(500000, 1)
+    .map(t => Math.floor(Math.random() * 10000) + 1)
+    .toArray();
 
 const lazyJs = (array) => {
-    return new Iterable(array)
-        .lazyMap(t => parseInt(t))
-        .lazyFilter(t => t >= 3)
-        // .slice(0, 3)
+    return new FluentIterable(array)
+        .map(t => parseInt(t))
+        .filter(t => t >= 3)
+        .skip(1)
+        .take(2)
         .toArray();
 }
 
 const eagerJs = (array) => {
     return array
         .map(t => parseInt(t))
-        .filter(t => t >= 3);
+        .filter(t => t >= 3)
+        .slice(1, 3);
 };
 
 
@@ -36,6 +42,6 @@ const doTest = (testId, numberOfTries, testMethod) => {
     console.log(`${testId} - completed in ${totalTime}!`);
 };
 
-const numberOfTries = 50000;
+const numberOfTries = 100;
 doTest('lazy', numberOfTries, () => lazyJs(complexArray));
 doTest('eager', numberOfTries, () => eagerJs(complexArray));
