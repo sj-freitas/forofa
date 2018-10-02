@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Fluent api for lazy iterators in JS",
   "scripts": {
-    "test": "jest --no-cache"
+    "test": "jest --no-cache",
+    "travis": "jest --no-cache --coverage --coverageReporters=text-lcov | coveralls"
   },
   "author": "Sérgio Freitas",
   "license": "ISC",
