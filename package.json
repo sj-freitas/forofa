@@ -1,7 +1,7 @@
 {
-  "name": "lazy-iterators",
+  "name": "for-of-a",
   "version": "1.0.0",
-  "description": "A simple example of lazy iterators in JS",
+  "description": "Fluent api for lazy iterators in JS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
