@@ -2,11 +2,13 @@
   "name": "for-of-a",
   "version": "1.0.0",
   "description": "Fluent api for lazy iterators in JS",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "jest --no-cache"
   },
   "author": "Sérgio Freitas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }
