@@ -4,7 +4,6 @@
   "description": "Fluent api for lazy iterators in JS",
   "scripts": {
     "test": "jest --coverage --no-cache",
-    "travis": "jest --coverage --no-cache && codecov",
     "lint": "eslint .",
     "fix": "npm run fix:js && npm run fix:other"
   },
