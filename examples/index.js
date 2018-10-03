@@ -1,9 +1,9 @@
 const { FluentIterable } = require('./../lib');
+const { repeat } = require('./../lib/functions');
 const { performance } = require('perf_hooks');
 
 const simpleArray = ['2', '1', '4', '3', '7', '2', '3', '99'];
-const complexArray = FluentIterable
-    .repeat(500000, 1)
+const complexArray = new FluentIterable(repeat(500000, 1))
     .map(t => Math.floor(Math.random() * 10000) + 1)
     .toArray();
 
