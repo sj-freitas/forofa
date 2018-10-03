@@ -65,8 +65,8 @@ For 100 tries for each test, the results are as following (times in ms):
 
 | Types                    | 1       | 10      | 100     | 1000    | 10000   | 100000  |
 | -------------------------|:-------:|:-------:|:-------:|:-------:|:-------:|--------:|
-| Iterable                 | 1.205   | 1.136   | 1.333   | *0.653* | *0.830* | *0.656* |
-| Array.map & filter       | *0.1*   | *0.173* | *1.000* | 5.976   | 46.855  | 1789.61 |
+| Iterable                 | 1.205   | 1.136   | 1.333   | **0.653** | **0.830** | **0.656** |
+| Array.map & filter       | **0.1**   | **0.173** | **1.000** | 5.976   | 46.855  | 1789.61 |
 
 Even though performance isn't always the best, it's interesting to take into consideration that iterables are already an abstraction and any collection type can be considered as one, making the Iterable code applyable to any collection, such as Sets, Strings, Arrays, etc.
 
@@ -95,8 +95,8 @@ For 100 tries for each test, the results are as following (times in ms):
 
 | Types                    | 1       | 10      | 100     | 1000    | 10000   | 100000  |
 | -------------------------|:-------:|:-------:|:-------:|:-------:|:-------:|--------:|
-| ITerable                 | 0.823   | 1.237   | 5.138   | 11.675  | 75.693  | *762.78*|
-| Array.map & filter       | *0.08*  | *0.143* | *0.750* | *5.295* | *46.682*| 1718.92 |
+| ITerable                 | 0.823   | 1.237   | 5.138   | 11.675  | 75.693  | **762.78**|
+| Array.map & filter       | **0.08**  | **0.143** | **0.750** | **5.295** | **46.682**| 1718.92 |
 
 There's a noticeable performance gain after the arrays start getting very large.
 
