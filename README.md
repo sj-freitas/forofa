@@ -19,7 +19,7 @@ Since this library is all about iterators, it can support infinite iteratables, 
 Since most collection types in JavaScript implement the iterator protocol, this library takes advantage of that, to wrap any iterable into an object that has several fluent-api functions. The wrapper also implements the iterator protocol, allowing the resulting iterables to be used with `for..of` loops, hence, the name.
 
 ```JavaScript
-const { Iterable } = require('forofa');
+const { Iterable } = require("forofa");
 
 const array = ['2', '1', '4', '3', '7', '2', '3', '99'];
 
@@ -39,6 +39,9 @@ Since iterables are inferred, the execution only matters when they are concretiz
 #### Regular Case Scenario
 
 ```JavaScript
+const { reduce } = require("forofa/functions");
+const { Iterable } = require("forofa");
+
 const numberOfElements = 70000;
 const complexArray = new Iterable(repeat(numberOfElements, 1))
   .map(t => Math.floor(Math.random() * 10000) + 1)
@@ -73,6 +76,9 @@ Even though performance isn't always the best, it's interesting to take into con
 #### Worst Case Scenario
 
 ```JavaScript
+const { reduce } = require("forofa/functions");
+const { Iterable } = require("forofa");
+
 const complexArray = new Iterable(repeat(numberOfElements, 1))
   .map(t => Math.floor(Math.random() * 10000) + 1)
   .toArray();
