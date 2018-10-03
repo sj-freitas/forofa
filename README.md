@@ -39,8 +39,8 @@ Since iterables are inferred, the execution only matters when they are concretiz
 #### Regular Case Scenario
 
 ```JavaScript
-const { reduce } = require("forofa/functions");
 const { Iterable } = require("forofa");
+const { repeat } = require("forofa/functions");
 
 const numberOfElements = 70000;
 const complexArray = new Iterable(repeat(numberOfElements, 1))
@@ -76,8 +76,8 @@ Even though performance isn't always the best, it's interesting to take into con
 #### Worst Case Scenario
 
 ```JavaScript
-const { reduce } = require("forofa/functions");
 const { Iterable } = require("forofa");
+const { repeat } = require("forofa/functions");
 
 const complexArray = new Iterable(repeat(numberOfElements, 1))
   .map(t => Math.floor(Math.random() * 10000) + 1)
