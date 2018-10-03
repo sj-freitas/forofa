@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest --coverage --no-cache",
     "travis": "jest --coverage --no-cache && codecov",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "fix": "npm run fix:js && npm run fix:other"
   },
   "author": "Sérgio Freitas",
   "license": "ISC",
