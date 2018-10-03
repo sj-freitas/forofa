@@ -2,9 +2,11 @@
 
 [![Build Status](https://travis-ci.org/sergioFreitas1990/forofa.svg?branch=master)](https://travis-ci.org/sergioFreitas1990/forofa)
 [![codecov](https://codecov.io/gh/sergioFreitas1990/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sergioFreitas1990/forofa)
-
 [![dependencies Status](https://david-dm.org/sergioFreitas1990/forofa/status.svg)](https://david-dm.org/sergioFreitas1990/forofa)
-[![devDependencies Status](https://david-dm.org/sergioFreitas1990/forofa/dev-status.svg)](https://david-dm.org/sergioFreitas1990/forofa?type=dev)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/maintainability)](https://codeclimate.com/github/sergioFreitas1990/forofa/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/test_coverage)](https://codeclimate.com/github/sergioFreitas1990/forofa/test_coverage)
+
 
 A lazy iteration library that contains many `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
 
