@@ -1,8 +1,10 @@
-# forofa.js
+# forofa.js 🥓
 
 [![Build Status](https://travis-ci.org/sergioFreitas1990/forofa.svg?branch=master)](https://travis-ci.org/sergioFreitas1990/forofa)
 [![codecov](https://codecov.io/gh/sergioFreitas1990/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sergioFreitas1990/forofa)
-[![Dependency Status](https://img.shields.io/david/sergioFreitas1990/forofa.svg?style=flat-square)](https://david-dm.org/sergioFreitas1990/forofa)
+
+[![dependencies Status](https://david-dm.org/sergioFreitas1990/forofa/status.svg)](https://david-dm.org/sergioFreitas1990/forofa)
+[![devDependencies Status](https://david-dm.org/sergioFreitas1990/forofa/dev-status.svg)](https://david-dm.org/sergioFreitas1990/forofa?type=dev)
 
 A lazy iteration library that contains many `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
 
