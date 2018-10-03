@@ -4,17 +4,31 @@
   "description": "Fluent api for lazy iterators in JS",
   "scripts": {
     "test": "jest --coverage --no-cache",
-    "travis": "jest --coverage --no-cache && codecov"
+    "travis": "jest --coverage --no-cache && codecov",
+    "lint": "eslint ."
   },
   "author": "Sérgio Freitas",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.1.0",
     "jest": "^23.6.0",
-    "lite-server": "^2.4.0"
+    "lite-server": "^2.4.0",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
