@@ -1,11 +1,11 @@
 # forofa.js 🥓
 
-[![Build Status](https://travis-ci.org/sergioFreitas1990/forofa.svg?branch=master)](https://travis-ci.org/sj-freitas/forofa)
-[![codecov](https://codecov.io/gh/sergioFreitas1990/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sj-freitas/forofa)
-[![dependencies Status](https://david-dm.org/sergioFreitas1990/forofa/status.svg)](https://david-dm.org/sj-freitas/forofa)
+[![Build Status](https://travis-ci.org/sj-freitas/forofa.svg?branch=master)](https://travis-ci.org/sj-freitas/forofa)
+[![codecov](https://codecov.io/gh/sj-freitas/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sj-freitas/forofa)
+[![dependencies Status](https://david-dm.org/sj-freitas/forofa/status.svg)](https://david-dm.org/sj-freitas/forofa)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/maintainability)](https://codeclimate.com/github/sj-freitas/forofa/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/test_coverage)](https://codeclimate.com/github/sj-freitas/forofa/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/maintainability)](https://codeclimate.com/github/sj-freitas/forofa/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/test_coverage)](https://codeclimate.com/github/sj-freitas/forofa/test_coverage)
 
 A lazy iteration library that contains many `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
 

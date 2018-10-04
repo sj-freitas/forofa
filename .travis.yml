@@ -1,9 +1,8 @@
 language: node_js
 node_js: 8
-script: npm run test
 addons:
-    code_climate:
-        repo_token: f141d0d5f3e156e66e637ebe44a4c624de4dc1b3065f45e7f9325f648ecdb91c
+  code_climate:
+    repo_token: 97488220da208c44cbce579e30d33cdac571190d840163267a5e9c57d42d7c90
 script: npm run test
 before_script:
   - npm install
