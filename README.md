@@ -1,11 +1,11 @@
 # forofa.js 🥓
 
-[![Build Status](https://travis-ci.org/sergioFreitas1990/forofa.svg?branch=master)](https://travis-ci.org/sergioFreitas1990/forofa)
-[![codecov](https://codecov.io/gh/sergioFreitas1990/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sergioFreitas1990/forofa)
-[![dependencies Status](https://david-dm.org/sergioFreitas1990/forofa/status.svg)](https://david-dm.org/sergioFreitas1990/forofa)
+[![Build Status](https://travis-ci.org/sergioFreitas1990/forofa.svg?branch=master)](https://travis-ci.org/sj-freitas/forofa)
+[![codecov](https://codecov.io/gh/sergioFreitas1990/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sj-freitas/forofa)
+[![dependencies Status](https://david-dm.org/sergioFreitas1990/forofa/status.svg)](https://david-dm.org/sj-freitas/forofa)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/maintainability)](https://codeclimate.com/github/sergioFreitas1990/forofa/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/test_coverage)](https://codeclimate.com/github/sergioFreitas1990/forofa/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/maintainability)](https://codeclimate.com/github/sj-freitas/forofa/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/test_coverage)](https://codeclimate.com/github/sj-freitas/forofa/test_coverage)
 
 A lazy iteration library that contains many `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
 
@@ -149,13 +149,13 @@ Will execute all tests including code coverage for all the generic functions.
 
 ## Contributing
 
-Any contribution is allowed, create an issue on the [GitHub](https://github.com/sergioFreitas1990/forofa) page describing in detail the feature, then, feel free to post a merge request!
+Any contribution is allowed, create an issue on the [GitHub](https://github.com/sj-freitas/forofa) page describing in detail the feature, then, feel free to post a merge request!
 
 ## Authors
 
-- **Sérgio Freitas** - _Initial work_ - [SergioFreitas1990](https://github.com/sergioFreitas1990)
+- **Sérgio Freitas** - _Initial work_ - [sj-freitas](https://github.com/sj-freitas)
 
-See also the list of [contributors](https://github.com/sergioFreitas1990/forofa/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/sj-freitas/forofa/graphs/contributors) who participated in this project.
 
 ## License
 
