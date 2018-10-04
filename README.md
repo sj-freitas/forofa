@@ -7,14 +7,13 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/maintainability)](https://codeclimate.com/github/sergioFreitas1990/forofa/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bada39d83b833014f31a/test_coverage)](https://codeclimate.com/github/sergioFreitas1990/forofa/test_coverage)
 
-
 A lazy iteration library that contains many `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
 
 Since this library is all about iterators, it can support infinite iteratables, such as Fibonacci sequence or any other infinite sequence.
 
 ## Getting Started
 
-```npm install forofa```
+`npm install forofa --save`
 
 ### Examples
 
@@ -30,9 +29,39 @@ return new Iterable(array)
   .filter(t => t >= 3)
   .toArray();
 ```
+
 This will result in `[4, 3, 7, 3, 99]`.
 
 The `toArray()` method will make the iterable concrete.
+
+```JavaScript
+const { createIterable } = require("forofa/utils");
+const { Iterable } = require("forofa");
+
+const createFibonacci = () => {
+  let prev = 0;
+  let curr = 1;
+
+  return createIterable(() => {
+    const oldCurr = curr;
+    const next = {
+      done: false,
+      value: prev,
+    };
+
+    curr = curr + prev;
+    prev = oldCurr;
+
+    return next;
+  });
+};
+
+for (const curr of new Iterable(createFibonacci()).skip(1).take(5)) {
+  console.log(curr);
+}
+```
+
+This will print `1, 2, 3, 5, 8`, forofa allows these `for..of` statements to be used anywhere with much ease.
 
 ### Performance
 
@@ -68,10 +97,10 @@ const eagerJs = (array) => {
 
 For 100 tries for each test, the results are as following (times in ms):
 
-| Types                    | 1       | 10      | 100     | 1000    | 10000   | 100000  |
-| -------------------------|:-------:|:-------:|:-------:|:-------:|:-------:|--------:|
-| Iterable                 | 1.205   | 1.136   | 1.333   | **0.653** | **0.830** | **0.656** |
-| Array.map & filter       | **0.1**   | **0.173** | **1.000** | 5.976   | 46.855  | 1789.61 |
+| Types              |    1    |    10     |    100    |   1000    |   10000   |    100000 |
+| ------------------ | :-----: | :-------: | :-------: | :-------: | :-------: | --------: |
+| Iterable           |  1.205  |   1.136   |   1.333   | **0.653** | **0.830** | **0.656** |
+| Array.map & filter | **0.1** | **0.173** | **1.000** |   5.976   |  46.855   |   1789.61 |
 
 Even though performance isn't always the best, it's interesting to take into consideration that iterables are already an abstraction and any collection type can be considered as one, making the Iterable code applyable to any collection, such as Sets, Strings, Arrays, etc.
 
@@ -101,10 +130,10 @@ const eagerJs = (array) => {
 
 For 100 tries for each test, the results are as following (times in ms):
 
-| Types                    | 1       | 10      | 100     | 1000    | 10000   | 100000  |
-| -------------------------|:-------:|:-------:|:-------:|:-------:|:-------:|--------:|
-| ITerable                 | 0.823   | 1.237   | 5.138   | 11.675  | 75.693  | **762.78**|
-| Array.map & filter       | **0.08**  | **0.143** | **0.750** | **5.295** | **46.682**| 1718.92 |
+| Types              |    1     |    10     |    100    |   1000    |   10000    |     100000 |
+| ------------------ | :------: | :-------: | :-------: | :-------: | :--------: | ---------: |
+| ITerable           |  0.823   |   1.237   |   5.138   |  11.675   |   75.693   | **762.78** |
+| Array.map & filter | **0.08** | **0.143** | **0.750** | **5.295** | **46.682** |    1718.92 |
 
 There's a noticeable performance gain after the arrays start getting very large.
 
@@ -114,7 +143,7 @@ ES2017 is needed or any transpiling tool, since the library supports async funct
 
 ## Running the tests
 
-```yarn test```
+`yarn test`
 
 Will execute all tests including code coverage for all the generic functions.
 
@@ -124,7 +153,7 @@ Any contribution is allowed, create an issue on the [GitHub](https://github.com/
 
 ## Authors
 
-* **Sérgio Freitas** - *Initial work* - [SergioFreitas1990](https://github.com/sergioFreitas1990)
+- **Sérgio Freitas** - _Initial work_ - [SergioFreitas1990](https://github.com/sergioFreitas1990)
 
 See also the list of [contributors](https://github.com/sergioFreitas1990/forofa/graphs/contributors) who participated in this project.
 
@@ -134,5 +163,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* People at [Hexis Technology Hub](https://hexis-hub.com/#home) for their great support
-* [C# Linq](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/getting-started-with-linq)
+- People at [Hexis Technology Hub](https://hexis-hub.com/#home) for their great support
+- [C# Linq](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/getting-started-with-linq)
