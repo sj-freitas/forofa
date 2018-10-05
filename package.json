@@ -8,7 +8,11 @@
     "fix": "npm run fix:js && npm run fix:other"
   },
   "author": "Sérgio Freitas",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sj-freitas/forofa"
+  },
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.6.1",

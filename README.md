@@ -1,4 +1,4 @@
-# forofa.js 🥓
+# forofa
 
 [![Build Status](https://travis-ci.org/sj-freitas/forofa.svg?branch=master)](https://travis-ci.org/sj-freitas/forofa)
 [![codecov](https://codecov.io/gh/sj-freitas/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sj-freitas/forofa)
