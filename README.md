@@ -9,7 +9,7 @@
 
 A lazy iteration library that contains many of the `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
 
-Since this library is all about iterators, it can support infinite iteratables, such as Fibonacci sequence or any other infinite sequence.
+Since this library is all about iterators, it can support infinite iteratables, such as a Fibonacci sequence or any other infinite sequence.
 
 ## Getting Started
 
@@ -17,20 +17,21 @@ Since this library is all about iterators, it can support infinite iteratables, 
 
 ### Examples
 
-Since most collection types in JavaScript implement the iterator protocol, this library takes advantage of that, to wrap any iterable into an object that has several fluent-api functions. The wrapper also implements the iterator protocol, allowing the resulting iterables to be used with `for..of` loops, hence, the name.
+Since most collection types in JavaScript implement the iterator protocol, this library wraps any iterable into an object that has several fluent-api functions, allowing the types to be abstracted but still share the same methods. The wrapper also implements the iterator protocol, allowing the resulting iterables to be used with `for..of` loops, hence, the name.
 
 ```JavaScript
 const { Iterable } = require("forofa");
 
-const array = ['2', '1', '4', '3', '7', '2', '3', '99'];
-
-return new Iterable(array)
+ const iterable = new Iterable(['2', '1', '4', '3', '7', '2', '3', '99'])
   .map(t => parseInt(t))
-  .filter(t => t >= 3)
-  .toArray();
+  .filter(t => t >= 3);
+
+for (const curr of iterable) {
+  console.log(curr);
+}
 ```
 
-This will result in `[4, 3, 7, 3, 99]`.
+This will print in `4, 3, 7, 3, 99`.
 
 The `toArray()` method will make the iterable concrete.
 
@@ -56,16 +57,15 @@ const createFibonacci = () => {
   });
 };
 
-for (const curr of new Iterable(createFibonacci()).skip(1).take(5)) {
-  console.log(curr);
-}
+const fibonacci = new Iterable(createFibonacci()).skip(1).take(5).toArray();
+console.log(fibonacci);
 ```
 
-This will print `1, 2, 3, 5, 8`, forofa allows these `for..of` statements to be used anywhere with much ease.
+This will print `[1, 2, 3, 5, 8]`, even though the fibonacci sequence is infinite. Calling functions such as `toArray()`, `reduce()` or `count()` can result in the application blocking!
 
 ### Extending
 
-Although the library is open-source and open to new methods, the fluent-api can be easily extended without having to change the source code. The `Iterable` and `AsyncIterable` classes can be both extended to add different features, for example, a version with a `toString` function.
+The fluent-api can be easily extended without having to change the source code. The `Iterable` and `AsyncIterable` classes can be both extended to add different features, for example, a version with a `toString` function.
 
 ```JavaScript
 const { Iterable } = require("./../lib");
