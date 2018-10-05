@@ -292,6 +292,8 @@ This will print `3`, `4` and `5`.
 
 Similar to the [Array.prototype.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) function, but in a lazy fashion, it won't create a new collection or iterate through the items, it'll use the skip and take implementation under the hood.
 
+### Example
+
 ```js
 const { Iterable } = require("forofa");
 
@@ -307,6 +309,8 @@ This will print `2`, `3` and `4`.
 
 Similar to the [Array.prototype.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) function, gets whether or not all the elements contained in the iterable fulfil a certain criteria. For better performance, the iteration will stop once a value that does not fulfil the criteria is found.
 **Warning**: This function can block your code in case of infinite iterables.
+
+### Example
 
 ```js
 const { Iterable } = require("forofa");
@@ -342,6 +346,8 @@ This will print `1`, `2` and `3`.
 
 Concretizes the iterable to an array, materializing all its values.
 **Warning**: This function can block your code in case of infinite iterables.
+
+### Example
 
 ```js
 const { Iterable } = require("forofa");
