@@ -14,6 +14,7 @@ Below the many functions currently supported are documented.
 - [reduce](#reduce)
 - [repeat](#repeat)
 - [skip](#skip)
+- [slice](#slice)
 - [some](#some)
 - [take](#take)
 - [toArray](#toarray)
@@ -73,7 +74,7 @@ However, the operation can be concluded and return `Infinity` when it reaches th
 
 ## every
 
-Gets whether or not all the elements contained in the iterable fulfil a certain criteria. For better performance, the iteration will stop once a value that does not fulfil the criteria is found.
+Similar to the [Array.prototype.every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) function, gets whether or not all the elements contained in the iterable fulfil a certain criteria. For better performance, the iteration will stop once a value that does not fulfil the criteria is found.
 **Warning**: This function can block your code in case of infinite iterables.
 
 ```js
@@ -272,18 +273,105 @@ This will print `word` three times.
 
 ## skip
 
-TODO
+Takes inspiration on the [Linq Skip](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.skip?view=netframework-4.7.2) which will pass through the n first elements.
+
+### Example
+
+```js
+const { Iterable } = require("forofa");
+
+const items = new Iterable([1, 2, 3, 4, 5]).skip(2);
+for (const curr of items) {
+  console.log(curr);
+}
+```
+
+This will print `3`, `4` and `5`.
+
+## slice
+
+Similar to the [Array.prototype.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) function, but in a lazy fashion, it won't create a new collection or iterate through the items, it'll use the skip and take implementation under the hood.
+
+```js
+const { Iterable } = require("forofa");
+
+const items = new Iterable([1, 2, 3, 4, 5]).slice(1, 4);
+for (const curr of items) {
+  console.log(curr);
+}
+```
+
+This will print `2`, `3` and `4`.
 
 ## some
 
-TODO
+Similar to the [Array.prototype.some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) function, gets whether or not all the elements contained in the iterable fulfil a certain criteria. For better performance, the iteration will stop once a value that does not fulfil the criteria is found.
+**Warning**: This function can block your code in case of infinite iterables.
+
+```js
+const { Iterable } = require("forofa");
+
+const iterable1 = new Iterable([1, 2, -3, -4]);
+const iterable2 = new Iterable([1, 2, 3, 4]);
+const isNegativeNumber = curr => curr < 0;
+
+console.log(iterable1.some(isNegativeNumber));
+console.log(iterable2.some(isNegativeNumber));
+```
+
+This will print `true` and `false` in order.
 
 ## take
 
-TODO
+Takes inspiration on the [Linq Take](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.take?view=netframework-4.7.2) which will take the n first elements.
+
+### Example
+
+```js
+const { Iterable } = require("forofa");
+
+const items = new Iterable([1, 2, 3, 4, 5]).take(3);
+for (const curr of items) {
+  console.log(curr);
+}
+```
+
+This will print `1`, `2` and `3`.
 
 ## toArray
 
-TODO
+Concretizes the iterable to an array, materializing all its values.
+**Warning**: This function can block your code in case of infinite iterables.
+
+```js
+const { Iterable } = require("forofa");
+
+function* createCollection() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const items = new Iterable(createCollection()).toArray();
+console.log(items);
+```
+
+This will print `Array(3) [1, 2, 3]`.
 
 ## toIterable
+
+Wraps the single item as an iterable. This can be the equivalent to wrapping an item onto an array however this won't allocate an array in memory.
+
+### Example
+
+```js
+const { toIterable } = require("forofa/functions");
+
+// Equivalent to doing [5].
+const item = toIterable(5);
+for (const curr of item) {
+  console.log(curr);
+}
+```
+
+This will print `5`.

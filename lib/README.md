@@ -11,7 +11,7 @@ A lazy iteration library that contains many of the `Array.prototype` methods tha
 
 ## Functions
 
-Click [here](./functions) to check all the currently supported functions.
+Click [here](https://github.com/sj-freitas/forofa/tree/master/lib/functions#table-of-contents) to check all the currently supported functions.
 
 ## Example
 
@@ -23,7 +23,9 @@ const { Iterable } = require("forofa");
 // This is lazy, nothing has been iterated yet.
 const iterable = new Iterable(["2", "1", "4", "3", "7", "2", "3", "99"])
   .map(t => parseInt(t))
-  .filter(t => t >= 3);
+  .filter(t => t >= 3)
+  .skip(1)
+  .take(4);
 
 // Does the iteration itself.
 for (const curr of iterable) {
@@ -31,4 +33,4 @@ for (const curr of iterable) {
 }
 ```
 
-This will print in `4`, `3`, `7`, `3` and `99`.
+This will print `3`, `7`, `3` and `99`.
