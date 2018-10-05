@@ -10,14 +10,14 @@ Below the many functions currently supported are documented.
 - [get](#get)
 - [join](#get)
 - [map](#map)
-- [mapMany](#mapMany)
+- [mapMany](#mapmany)
 - [reduce](#reduce)
 - [repeat](#repeat)
 - [skip](#skip)
 - [some](#some)
 - [take](#take)
-- [toArray](#toArray)
-- [toIterable](#toIterable)
+- [toArray](#toarray)
+- [toIterable](#toiterable)
 
 ## concat
 
@@ -131,7 +131,7 @@ This will print `2` and `40`.
 Will get the first element that fulfils the criteria and returns it. If no element is found it'll throw an error. This function was inspired on the [Linq First](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.first?redirectedfrom=MSDN&view=netframework-4.7.2#overloads).
 **Warning**: If empty or there's no match, it'll throw an error.
 
-### Examples
+### Example
 
 ```js
 const { Iterable } = require("forofa");
@@ -146,7 +146,7 @@ It'll print `-3`.
 
 Given an index, it'll give the element at the specific position. It'll return undefined if reaches an out of bounds value.
 
-### Examples
+### Example
 
 ```js
 const { Iterable } = require("forofa");
@@ -168,7 +168,7 @@ It'll print `6`.
 
 Similar to the [Array.prototype.join](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join), it's mostly an auxilary method. It'll convert the collection to a string and join the parts with the separator string.
 
-### Examples
+### Example
 
 ```js
 const { Iterable } = require("forofa");
@@ -196,7 +196,7 @@ This will print `Saturday and Sunday`.
 
 Similar to the [Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function, but will function in a lazy manner, only mapping each item on demand.
 
-### Examples
+### Example
 
 ```js
 const { Iterable } = require("forofa");
@@ -215,7 +215,7 @@ This will print `2`, `4` and `6`.
 
 Takes inspiration on the [Linq SelectMany](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.selectmany?view=netframework-4.7.2) which takes a collection per individual item and flattens them as a single collection but in a lazy fashion. This function is very useful when having a collection of objects where each object has in itself another collection.
 
-### Examples
+### Example
 
 ```js
 const { Iterable } = require("forofa");
@@ -238,11 +238,37 @@ This will print `Apples`, `Bananas`, `Oranges` and `Melons`.
 
 ## reduce
 
-TODO
+Similar to the [Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) function. Keeping the same behavior but working with all iterable types, not just arrays.
+
+### Example
+
+```js
+const { Iterable } = require("forofa");
+
+const sum = new Iterable("12345").reduce(
+  (prev, next) => parseInt(prev) + parseInt(next)
+);
+console.log(sum);
+```
+
+This will print `15`.
 
 ## repeat
 
-TODO
+Creates a lazy collection of the same element repeated n times. It can be used to create infinite collections. It has O(1) creation cost as it doesn't necessarily create anything.
+
+### Example
+
+```js
+const { repeat } = require("forofa/functions");
+
+const words = repeat("word", 3);
+for (const curr of words) {
+  console.log(curr);
+}
+```
+
+This will print `word` three times.
 
 ## skip
 
