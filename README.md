@@ -7,7 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/maintainability)](https://codeclimate.com/github/sj-freitas/forofa/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/test_coverage)](https://codeclimate.com/github/sj-freitas/forofa/test_coverage)
 
-A lazy iteration library that contains many `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
+A lazy iteration library that contains many of the `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
 
 Since this library is all about iterators, it can support infinite iteratables, such as Fibonacci sequence or any other infinite sequence.
 
@@ -62,6 +62,23 @@ for (const curr of new Iterable(createFibonacci()).skip(1).take(5)) {
 ```
 
 This will print `1, 2, 3, 5, 8`, forofa allows these `for..of` statements to be used anywhere with much ease.
+
+### Extending
+
+Although the library is open-source and open to new methods, the fluent-api can be easily extended without having to change the source code. The `Iterable` and `AsyncIterable` classes can be both extended to add different features, for example, a version with a `toString` function.
+
+```JavaScript
+const { Iterable } = require("./../lib");
+
+class ExtendedIterable extends Iterable {
+  toString() {
+    return `[${super.join(", ")}]`;
+  }
+}
+
+// Will be "[2, 3, 4]"
+const stringArray = new ExtendedIterable([2, 3, 4]).toString();
+```
 
 ### Performance
 
