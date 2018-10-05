@@ -1,18 +1,11 @@
 {
-  "name": "forofa",
   "version": "1.0.0",
-  "description": "Fluent api for lazy iterators in JS",
   "scripts": {
     "test": "jest --coverage --no-cache",
     "lint": "eslint .",
     "fix": "npm run fix:js && npm run fix:other"
   },
   "author": "Sérgio Freitas",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sj-freitas/forofa"
-  },
-  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.6.1",

@@ -7,9 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/maintainability)](https://codeclimate.com/github/sj-freitas/forofa/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/test_coverage)](https://codeclimate.com/github/sj-freitas/forofa/test_coverage)
 
-A lazy iteration library that contains many of the `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API.
-
-Since this library is all about iterators, it can support infinite iteratables, such as a Fibonacci sequence or any other infinite sequence.
+A lazy iteration library that contains many of the `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API. Since this library is all about iterators, it can support infinite iteratables, such as a Fibonacci sequence or any other infinite sequence.
 
 ## Getting Started
 
@@ -17,25 +15,26 @@ Since this library is all about iterators, it can support infinite iteratables, 
 
 ### Examples
 
-Since most collection types in JavaScript implement the iterator protocol, this library wraps any iterable into an object that has several fluent-api functions, allowing the types to be abstracted but still share the same methods. The wrapper also implements the iterator protocol, allowing the resulting iterables to be used with `for..of` loops, hence, the name.
+Most collection types in JavaScript implement the iterator protocol (Array, String, Set, Map), this library wraps any iterable into an object that has several fluent-api functions, allowing the types to be abstracted but still share the same methods. The wrapper also implements the iterator protocol, allowing the resulting iterables to be used with `for..of` loops, hence, the name.
 
-```JavaScript
+```js
 const { Iterable } = require("forofa");
 
- const iterable = new Iterable(['2', '1', '4', '3', '7', '2', '3', '99'])
+// This is lazy, nothing has been iterated yet.
+const iterable = new Iterable(["2", "1", "4", "3", "7", "2", "3", "99"])
   .map(t => parseInt(t))
   .filter(t => t >= 3);
 
+// Does the iteration itself.
 for (const curr of iterable) {
   console.log(curr);
 }
 ```
 
-This will print in `4, 3, 7, 3, 99`.
-
+This will print in `4`, `3`, `7`, `3` and `99`.
 The `toArray()` method will make the iterable concrete.
 
-```JavaScript
+```js
 const { createIterable } = require("forofa/utils");
 const { Iterable } = require("forofa");
 
@@ -47,7 +46,7 @@ const createFibonacci = () => {
     const oldCurr = curr;
     const next = {
       done: false,
-      value: prev,
+      value: prev
     };
 
     curr = curr + prev;
@@ -57,7 +56,10 @@ const createFibonacci = () => {
   });
 };
 
-const fibonacci = new Iterable(createFibonacci()).skip(1).take(5).toArray();
+const fibonacci = new Iterable(createFibonacci())
+  .skip(1)
+  .take(5)
+  .toArray();
 console.log(fibonacci);
 ```
 
@@ -67,7 +69,7 @@ This will print `[1, 2, 3, 5, 8]`, even though the fibonacci sequence is infinit
 
 The fluent-api can be easily extended without having to change the source code. The `Iterable` and `AsyncIterable` classes can be both extended to add different features, for example, a version with a `toString` function.
 
-```JavaScript
+```js
 const { Iterable } = require("./../lib");
 
 class ExtendedIterable extends Iterable {
@@ -86,7 +88,7 @@ Since iterables are inferred, the execution only matters when they are concretiz
 
 #### Regular Case Scenario
 
-```JavaScript
+```js
 const { Iterable } = require("forofa");
 const { repeat } = require("forofa/functions");
 
@@ -95,7 +97,7 @@ const complexArray = new Iterable(repeat(numberOfElements, 1))
   .map(t => Math.floor(Math.random() * 10000) + 1)
   .toArray();
 
-const lazyJs = (array) => {
+const lazyJs = array => {
   return new Iterable(array)
     .map(t => parseInt(t))
     .filter(t => t >= 3)
@@ -104,7 +106,7 @@ const lazyJs = (array) => {
     .toArray();
 };
 
-const eagerJs = (array) => {
+const eagerJs = array => {
   return array
     .map(t => parseInt(t))
     .filter(t => t >= 3)
@@ -123,7 +125,7 @@ Even though performance isn't always the best, it's interesting to take into con
 
 #### Worst Case Scenario
 
-```JavaScript
+```js
 const { Iterable } = require("forofa");
 const { repeat } = require("forofa/functions");
 
@@ -131,17 +133,15 @@ const complexArray = new Iterable(repeat(numberOfElements, 1))
   .map(t => Math.floor(Math.random() * 10000) + 1)
   .toArray();
 
-const lazyJs = (array) => {
+const lazyJs = array => {
   return new Iterable(array)
     .map(t => parseInt(t))
     .filter(t => t >= 3)
     .toArray();
 };
 
-const eagerJs = (array) => {
-  return array
-    .map(t => parseInt(t))
-    .filter(t => t >= 3);
+const eagerJs = array => {
+  return array.map(t => parseInt(t)).filter(t => t >= 3);
 };
 ```
 
