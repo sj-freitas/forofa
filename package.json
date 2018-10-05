@@ -1,5 +1,5 @@
 {
-  "name": "forofa.js",
+  "name": "forofa",
   "version": "1.0.0",
   "description": "Fluent api for lazy iterators in JS",
   "scripts": {
