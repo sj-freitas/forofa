@@ -49,7 +49,7 @@ const doTransforms = collection =>
     .slice(15, Math.floor(numberOfElementsPerCollection / 2))
     .reduce((prev, curr) => prev + curr);
 
-const complexArray = new Iterable(repeat(numberOfElementsPerCollection, 1))
+const complexArray = new Iterable(repeat(1, numberOfElementsPerCollection))
   .map(() => Math.floor(Math.random() * 10000) + 1)
   .toArray();
 
