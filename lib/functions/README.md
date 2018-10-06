@@ -77,6 +77,8 @@ However, the operation can be concluded and return `Infinity` when it reaches th
 Similar to the [Array.prototype.every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) function, gets whether or not all the elements contained in the iterable fulfil a certain criteria. For better performance, the iteration will stop once a value that does not fulfil the criteria is found.
 **Warning**: This function can block your code in case of infinite iterables.
 
+### Examples
+
 ```js
 const { Iterable } = require("forofa");
 
@@ -112,6 +114,8 @@ This will show `3`, as the iterator was iterated three times.
 ## filter
 
 Similar to the [Array.prototype.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) function, but will function in a lazy manner, only filtering each item on demand. On every next call, it'll cycile through the iteratable until it finds an item that fulfils the condition.
+
+### Example
 
 ```js
 const { Iterable } = require("forofa");
