@@ -1,11 +1,16 @@
 {
   "version": "1.0.0",
+  "author": "Sérgio Freitas",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sj-freitas/forofa.git"
+  },
   "scripts": {
     "test": "jest --coverage --no-cache",
     "lint": "eslint .",
     "fix": "npm run fix:js && npm run fix:other"
   },
-  "author": "Sérgio Freitas",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.6.1",
