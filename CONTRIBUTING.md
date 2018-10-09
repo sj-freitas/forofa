@@ -8,7 +8,7 @@
 
 #### **Did you write a patch that fixes a bug?**
 
-[Pull Request](https://github.com/sj-freitas/forofa/pulls
+[Pull Request](https://github.com/sj-freitas/forofa/pulls)
 * Open a new GitHub pull request with the patch.
 * Ensure the PR description clearly describes the problem and solution.Be sure to use the provided template and include the relevant issue number if applicable(preferably)
 
@@ -20,7 +20,7 @@
 
 #### **Do you want to contribute to the forofa documentation?**
 
-* Suggest your change in the [Issues](https://github.com/sj-freitas/forofa/issues).
+* Suggest your change in the [Issues](https://github.com/sj-freitas/forofa/issues)
 
 forofa is a side project from motivated devs. We encourage you to contribute if you feel you can bring new ideas and suggestions to the team.
 
