@@ -18,7 +18,8 @@
     "jest": "^23.6.0",
     "lite-server": "^2.4.0",
     "prettier": "^1.14.3",
-    "pretty-quick": "^1.7.0"
+    "pretty-quick": "^1.7.0",
+    "semantic-release": "^15.9.17"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
@@ -28,5 +29,14 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
   }
 }

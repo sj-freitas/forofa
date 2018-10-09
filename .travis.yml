@@ -10,3 +10,8 @@ before_script:
 after_script:
   - codecov
   - codeclimate-test-reporter < ./coverage/lcov.info
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - npx semantic-release
