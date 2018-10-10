@@ -160,13 +160,13 @@ ES2017 is needed or any transpiling tool, since the library supports async funct
 
 ## Running the tests
 
-`yarn test`
+`npm test`
 
 Will execute all tests including code coverage for all the generic functions.
 
 ## Contributing
 
-Any contribution is allowed, create an issue on the [GitHub](https://github.com/sj-freitas/forofa) page describing in detail the feature, then, feel free to post a merge request!
+Any contribution is allowed, check out the [Contributing Guide](https://github.com/sj-freitas/forofa/blob/master/CONTRIBUTING.md) on how to start contributing.
 
 ## Authors
 
