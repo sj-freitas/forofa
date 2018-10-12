@@ -310,6 +310,7 @@ This will print `word` three times.
 Will get the single element that fulfils the criteria and returns it. If no element is found it'll throw an error. If there are more than 1 element from the criteria it'll throw an error. This function was inspired on the [Linq Single](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.single?view=netframework-4.7.2).
 **Warning**: If empty or there's no match, it'll throw an error.
 **Warning**: If more than 1 match, it'll throw an error.
+**Warning**: If the collection is infinite and it has a predicate that is fulfilled just once, it can block your code.
 
 ### Examples
 
