@@ -8,11 +8,13 @@ Below the many functions currently supported are documented.
 - [filter](#filter)
 - [first](#first)
 - [get](#get)
-- [join](#get)
+- [join](#join)
+- [last](#last)
 - [map](#map)
 - [mapMany](#mapmany)
 - [reduce](#reduce)
 - [repeat](#repeat)
+- [single](#single)
 - [skip](#skip)
 - [slice](#slice)
 - [some](#some)
@@ -197,6 +199,34 @@ console.log(weekend);
 
 This will print `Saturday and Sunday`.
 
+## last
+
+Will get the last element that fulfils the criteria and returns it. If no element is found it'll throw an error. This function was inspired on the [Linq Last](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.last?view=netframework-4.7.2).
+**Warning**: If empty or there's no match, it'll throw an error.
+**Warning**: This function can block your code in case of infinite iterables.
+
+### Examples
+
+```js
+const { Iterable } = require("forofa");
+
+const last = new Iterable([1, 2, 3, 4, 5, 6]).last();
+console.log(last);
+```
+
+It'll print `6`.
+Check at this [RunKit](https://runkit.com/embed/t0acmy92rge3)
+
+```js
+const { Iterable } = require("forofa");
+
+const last = new Iterable([1, 2, 3, 4, 5, 6]).last(t => t < 4);
+console.log(last);
+```
+
+It'll print `3`.
+Check at this [RunKit](https://runkit.com/embed/6ja0h8zgdh1y)
+
 ## map
 
 Similar to the [Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) function, but will function in a lazy manner, only mapping each item on demand.
@@ -274,6 +304,35 @@ for (const curr of words) {
 ```
 
 This will print `word` three times.
+
+## single
+
+Will get the single element that fulfils the criteria and returns it. If no element is found it'll throw an error. If there are more than 1 element from the criteria it'll throw an error. This function was inspired on the [Linq Single](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.single?view=netframework-4.7.2).
+**Warning**: If empty or there's no match, it'll throw an error.
+**Warning**: If more than 1 match, it'll throw an error.
+**Warning**: If the collection is infinite and it has a predicate that is fulfilled just once, it can block your code.
+
+### Examples
+
+```js
+const { Iterable } = require("forofa");
+
+const single = new Iterable([1, 2, 3, 4, 5, 6]).single(t => t > 5);
+console.log(single);
+```
+
+It'll print `6`.
+Check at this [RunKit](https://runkit.com/embed/rx1ouvkjuqnp)
+
+```js
+const { Iterable } = require("forofa");
+
+const single = new Iterable([1, 2, 3, 4, 5, 6]).single(t => t < 4);
+console.log(single);
+```
+
+It'll throw an error.
+Check at this [RunKit](https://runkit.com/embed/aprbtjg05p07)
 
 ## skip
 
