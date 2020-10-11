@@ -1,7 +1,7 @@
 const { repeat } = require("../lib/functions");
 const { Iterable } = require("../lib");
 
-const isPrime = num => {
+const isPrime = (num) => {
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
       return false;
@@ -22,4 +22,5 @@ const primes = new Iterable(progressiveSequence)
   .take(5)
   .toArray();
 
+// eslint-disable-next-line no-console
 console.log(primes);

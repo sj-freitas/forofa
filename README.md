@@ -1,12 +1,15 @@
 # forofa
 
 [![Build Status](https://travis-ci.org/sj-freitas/forofa.svg?branch=master)](https://travis-ci.org/sj-freitas/forofa)
-[![codecov](https://codecov.io/gh/sj-freitas/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sj-freitas/forofa)
-[![dependencies Status](https://david-dm.org/sj-freitas/forofa/status.svg)](https://david-dm.org/sj-freitas/forofa)
+[![npm](https://img.shields.io/npm/v/semantic-release-example.svg)](https://www.npmjs.com/package/semantic-release-example)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=plastic)](https://github.com/semantic-release/semantic-release)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/maintainability)](https://codeclimate.com/github/sj-freitas/forofa/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/test_coverage)](https://codeclimate.com/github/sj-freitas/forofa/test_coverage)
+[![dependencies Status](https://david-dm.org/sj-freitas/forofa/status.svg)](https://david-dm.org/sj-freitas/forofa)
+[![devDependencies Status](https://david-dm.org/sj-freitas/forofa/dev-status.svg)](https://david-dm.org/sj-freitas/forofa?type=dev)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/61676b6d8d92faad718e/test_coverage)](https://codeclimate.com/github/sj-freitas/forofa/test_coverage)
+[![codecov](https://codecov.io/gh/sj-freitas/forofa/branch/master/graph/badge.svg)](https://codecov.io/gh/sj-freitas/forofa)
 A lazy iteration library that contains many of the `Array.prototype` methods that support any objects that implement the iterator [protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols). It also contains the `Iterable` and `AsyncIterable` types that can be easily extended and allow a fluent API. Since this library is all about iterators, it can support infinite iteratables, such as a Fibonacci sequence or any other infinite sequence.
 
 ## Getting Started
@@ -22,8 +25,8 @@ const { Iterable } = require("forofa");
 
 // This is lazy, nothing has been iterated yet.
 const iterable = new Iterable(["2", "1", "4", "3", "7", "2", "3", "99"])
-  .map(t => parseInt(t))
-  .filter(t => t >= 3);
+  .map((t) => parseInt(t))
+  .filter((t) => t >= 3);
 
 // Does the iteration itself.
 for (const curr of iterable) {
@@ -46,7 +49,7 @@ const createFibonacci = () => {
     const oldCurr = curr;
     const next = {
       done: false,
-      value: prev
+      value: prev,
     };
 
     curr = curr + prev;
@@ -56,10 +59,7 @@ const createFibonacci = () => {
   });
 };
 
-const fibonacci = new Iterable(createFibonacci())
-  .skip(1)
-  .take(5)
-  .toArray();
+const fibonacci = new Iterable(createFibonacci()).skip(1).take(5).toArray();
 console.log(fibonacci);
 ```
 
@@ -94,22 +94,22 @@ const { repeat } = require("forofa/functions");
 
 const numberOfElements = 70000;
 const complexArray = new Iterable(repeat(numberOfElements, 1))
-  .map(t => Math.floor(Math.random() * 10000) + 1)
+  .map((t) => Math.floor(Math.random() * 10000) + 1)
   .toArray();
 
-const lazyJs = array => {
+const lazyJs = (array) => {
   return new Iterable(array)
-    .map(t => parseInt(t))
-    .filter(t => t >= 3)
+    .map((t) => parseInt(t))
+    .filter((t) => t >= 3)
     .skip(1)
     .take(4)
     .toArray();
 };
 
-const eagerJs = array => {
+const eagerJs = (array) => {
   return array
-    .map(t => parseInt(t))
-    .filter(t => t >= 3)
+    .map((t) => parseInt(t))
+    .filter((t) => t >= 3)
     .slice(1, 5);
 };
 ```
@@ -130,18 +130,18 @@ const { Iterable } = require("forofa");
 const { repeat } = require("forofa/functions");
 
 const complexArray = new Iterable(repeat(numberOfElements, 1))
-  .map(t => Math.floor(Math.random() * 10000) + 1)
+  .map((t) => Math.floor(Math.random() * 10000) + 1)
   .toArray();
 
-const lazyJs = array => {
+const lazyJs = (array) => {
   return new Iterable(array)
-    .map(t => parseInt(t))
-    .filter(t => t >= 3)
+    .map((t) => parseInt(t))
+    .filter((t) => t >= 3)
     .toArray();
 };
 
-const eagerJs = array => {
-  return array.map(t => parseInt(t)).filter(t => t >= 3);
+const eagerJs = (array) => {
+  return array.map((t) => parseInt(t)).filter((t) => t >= 3);
 };
 ```
 

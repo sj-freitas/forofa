@@ -26,7 +26,7 @@ const doTest = (testMethod, saveResult, nTries) => {
 const runTestAux = (name, nTries, test) => {
   doTest(
     test,
-    time => {
+    (time) => {
       results[name] = `${roundDecimals(time, 3)} ms`;
     },
     nTries
@@ -42,10 +42,10 @@ const numberOfElementsPerCollection = 100000;
 /**
  * Example of the operations to do.
  */
-const doTransforms = collection =>
+const doTransforms = (collection) =>
   collection
-    .map(t => parseInt(t, 10))
-    .filter(t => t >= 3)
+    .map((t) => parseInt(t, 10))
+    .filter((t) => t >= 3)
     .slice(15, Math.floor(numberOfElementsPerCollection / 2))
     .reduce((prev, curr) => prev + curr);
 
@@ -64,4 +64,5 @@ runTestAux("lazy", numberOfTries, () => {
 });
 runTestAux("eager", numberOfTries, () => doTransforms(complexArray));
 
+// eslint-disable-next-line no-console
 console.log(JSON.stringify(results));
