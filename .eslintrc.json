@@ -2,7 +2,7 @@
   "extends": ["airbnb-base", "prettier"],
   "plugins": ["prettier", "jest"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "no-restricted-syntax": [
       "error",
       "WithStatement",

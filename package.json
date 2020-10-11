@@ -1,7 +1,27 @@
 {
-  "version": "1.0.0",
-  "author": "Sérgio Freitas",
+  "name": "forofa",
+  "description": "A library to simplify the iterator protocol",
+  "keywords": [
+    "lazy",
+    "iterator",
+    "iterable",
+    "linq",
+    "map",
+    "filter"
+  ],
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sj-freitas/forofa/issues"
+  },
+  "homepage": "https://github.com/sj-freitas/forofa#readme",
+  "version": "1.1.0",
+  "author": "Sérgio Freitas",
+  "contributors": [
+    "Ruben Mateus"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sj-freitas/forofa.git"
@@ -13,17 +33,17 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^5.6.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jest": "^21.24.1",
-    "eslint-plugin-prettier": "^3.0.0",
-    "husky": "^1.1.0",
-    "jest": "^23.6.0",
-    "lite-server": "^2.4.0",
-    "prettier": "^1.14.3",
-    "pretty-quick": "^1.7.0"
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "jest": "^26.5.2",
+    "lite-server": "^2.5.4",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.0.2"
   },
   "jest": {
     "coverageDirectory": "./coverage/",

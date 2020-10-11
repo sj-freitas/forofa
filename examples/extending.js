@@ -1,18 +1,18 @@
-const { Iterable } = require("./../lib");
+const { Iterable } = require("../lib");
 
-const toPascalCase = word => {
-  const begining = word.toUpperCase()[0];
+const toPascalCase = (word) => {
+  const beginning = word.toUpperCase()[0];
   const ending = word.toLowerCase().slice(1);
 
-  return `${begining}${ending}`;
+  return `${beginning}${ending}`;
 };
 
 class SentenceHelper extends Iterable {
   toCamelCase() {
-    const pascalCased = super.skip(1).map(t => toPascalCase(t));
+    const pascalCased = super.skip(1).map((t) => toPascalCase(t));
     const camelCased = super
       .take(1)
-      .map(t => t.toLowerCase())
+      .map((t) => t.toLowerCase())
       .concat(pascalCased);
 
     return new this.constructor(camelCased);
@@ -31,8 +31,9 @@ class SentenceHelper extends Iterable {
 // Will show "thisIsASentence"
 const sentence = ["  thIs  ", "   is  ", "   a  ", " sentence   "];
 const result = new SentenceHelper(sentence)
-  .map(t => t.trim())
+  .map((t) => t.trim())
   .toCamelCase()
   .toString();
 
+// eslint-disable-next-line no-console
 console.log(result);
