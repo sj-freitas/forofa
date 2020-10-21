@@ -1,18 +1,30 @@
 {
   "version": "1.0.0",
+  "name": "forofa",
   "author": "Sérgio Freitas",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sj-freitas/forofa.git"
   },
+  "main": "lib/cjs/index.js",
+  "module": "lib/es/index.js",
+  "files": [
+    "lib/*"
+  ],
   "scripts": {
     "test": "jest --coverage --no-cache",
     "lint": "eslint .",
-    "fix": "npm run fix:js && npm run fix:other"
+    "fix": "npm run fix:js && npm run fix:other",
+    "build": "rollup -c"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.11.5",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "babel-jest": "^26.5.2",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
@@ -20,10 +32,15 @@
     "eslint-plugin-jest": "^21.24.1",
     "eslint-plugin-prettier": "^3.0.0",
     "husky": "^1.1.0",
-    "jest": "^23.6.0",
+    "jest": "^26.5.3",
     "lite-server": "^2.4.0",
     "prettier": "^1.14.3",
-    "pretty-quick": "^1.7.0"
+    "pretty-quick": "^1.7.0",
+    "rollup": "^2.29.0",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "engines": {
+    "npm": "please-use-yarn"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
@@ -34,5 +51,8 @@
       "pre-commit": "pretty-quick --staged",
       "pre-push": "npm test"
     }
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.1"
   }
 }
